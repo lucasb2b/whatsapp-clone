@@ -1,16 +1,18 @@
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, View, SafeAreaView, Platform } from 'react-native';
-import ChatsScreen from './src/screens/ChatsScreen'
+import ChatsScreen from './src/screens/ChatsScreen';
+import ChatScreen from './src/screens/ChatScreen';
 
 export default function App() {
   return (
-    
     <SafeAreaView style={styles.container}>
-      <ChatsScreen />
-      <StatusBar style="auto" />
+      <ChatScreen />
+      <StatusBar style={color} backgroundColor='#03BB85'/>
     </SafeAreaView>
   );
 }
+
+const color = (Platform.OS === 'ios' ? 'dark' : 'light')
 
 const styles = StyleSheet.create({
   container: {
