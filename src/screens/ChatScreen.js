@@ -1,10 +1,15 @@
-import { View, Text, ImageBackground, StyleSheet, FlatList } from 'react-native';
+import { View, Text, ImageBackground, StyleSheet, FlatList, KeyboardAvoidingView, Platform } from 'react-native';
 import Message from '../components/Message';
+import InputBox from '../components/InputBox';
 import bg from '../../assets/images/BG.png';
 import messages from '../../assets/data/messages.json';
 
-export default function screens() {
+export default function ChatScreen () {
   return(
+    <KeyboardAvoidingView 
+    behavior={ Platform.OS === 'ios' ? 'padding' : 'height' }
+    style={styles.bg}
+    >
     <ImageBackground source={bg} style={styles.bg}>
       <FlatList
         data={messages}
@@ -12,7 +17,9 @@ export default function screens() {
         style={styles.list}
         inverted
       />
+      <InputBox />
     </ImageBackground>
+    </KeyboardAvoidingView>
   )
 }
 
